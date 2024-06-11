@@ -17,31 +17,38 @@ def main():
     kk_rct.center = 300, 200
 
     tmr = 0
-   
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: 
                 return
            
             
-
+        
         x = tmr % 3200
         screen.blit(bg_img, [-x, 0])  # 背景画像の配置
         screen.blit(bg_img_flip, [-x+1600, 0])
         screen.blit(bg_img, [-x+3200, 0]) 
         screen.blit(bg_img_flip, [-x+4800, 0])
 
+        
         key_lst = pg.key.get_pressed() # 全キーの状態を取得
+        a, b = -1, 0 
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip((0, -1))
+            b -= 1
+            # kk_rct.move_ip((a, b))
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0, 1))
+            b += 1
+            # kk_rct.move_ip((a, b))
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1, 0))  
+            a -= 1
+            # kk_rct.move_ip((a, b))  
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((1, 0))  
-        else:
-            kk_rct.move_ip((-1, 0))             
+            a += 2 
+             
+        kk_rct.move_ip((a, b)) 
+        
+
+        # kk_rct.move_ip((a,))       
 
         # こうかとんの座標
         screen.blit(kk_img, kk_rct)

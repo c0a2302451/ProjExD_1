@@ -14,11 +14,14 @@ def main():
     kk_img = pg.transform.flip(kk_img, True, False)
 
     tmr = 0
+   
     while True:
         for event in pg.event.get():
-            if event.type == pg.QUIT: return
-
-        screen.blit(bg_img, [0, 0])  # 背景画像の配置
+            if event.type == pg.QUIT: 
+                return
+            
+        x = tmr % 800
+        screen.blit(bg_img, [-x, 0])  # 背景画像の配置
 
         # こうかとんの座標
         kk_rct = kk_img.get_rect()

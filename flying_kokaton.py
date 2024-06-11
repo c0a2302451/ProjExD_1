@@ -43,7 +43,7 @@ def main():
             a -= 1
             # kk_rct.move_ip((a, b))  
         if key_lst[pg.K_RIGHT]:
-            a += 2 
+            a += 3 
              
         kk_rct.move_ip((a, b)) 
         
